@@ -8,12 +8,6 @@
       }
     },
     {
-      "name": "tomcat-app",
-      "host": {
-        "sourcePath": "/var/app/current/tomcat-app"
-      }
-    },
-    {
       "name": "nginx-proxy-static",
       "host": {
         "sourcePath": "/var/app/current/proxy/html"
@@ -45,23 +39,6 @@
       ]
     },
     {
-      "name": "tomcat-app",
-      "image": "tomcat:8.0",
-      "essential": true,
-      "memory": 256,
-      "mountPoints": [
-        {
-          "sourceVolume": "awseb-logs-tomcat-app",
-          "containerPath": "/usr/local/tomcat/logs"
-        },
-        {
-          "sourceVolume": "tomcat-app",
-          "containerPath": "/usr/local/tomcat/webapps/ROOT",
-          "readOnly": true
-        }
-      ]
-    },
-    {
       "name": "nginx-proxy",
       "image": "nginx",
       "essential": true,
@@ -73,8 +50,7 @@
         }
       ],
       "links": [
-        "php-app",
-        "tomcat-app"
+        "php-app"
       ],
       "mountPoints": [
         {
