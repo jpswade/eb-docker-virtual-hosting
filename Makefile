@@ -25,3 +25,6 @@ kill:
 
 serve:
 	php artisan serve
+
+keys:
+	aws s3 cp ${DEPLOY_ID_RSA_FILE} s3://${DEPLOY_EB_S3_BUCKET}/.ssh/id_rsa
