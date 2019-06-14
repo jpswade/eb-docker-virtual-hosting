@@ -23,7 +23,7 @@
   "containerDefinitions": [
     {
       "name": "php-app",
-      "image": "php:5.6-apache",
+      "image": "jpswade/php56-docker",
       "essential": true,
       "memory": 128,
       "mountPoints": [
@@ -33,7 +33,7 @@
         },
         {
           "sourceVolume": "php-app",
-          "containerPath": "/var/www/html",
+          "containerPath": "/var/www/",
           "readOnly": true
         }
       ]
