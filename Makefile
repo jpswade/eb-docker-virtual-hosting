@@ -28,3 +28,6 @@ serve:
 
 keys:
 	aws s3 cp ${DEPLOY_ID_RSA_FILE} s3://${DEPLOY_EB_S3_BUCKET}/.ssh/id_rsa
+
+setenv:
+	eb setenv `cat .env | xargs | sed -e 's/ / /g'` -e ${DEPLOY_SERVICE}-${DEPLOY_ENV}
